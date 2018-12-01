@@ -1,2 +1,8 @@
+# JetBrains IDE
+.idea
+
+# cmake build directory
+cmake-build-debug/
+
 *.swp
 .ycm_extra_conf.pyc
