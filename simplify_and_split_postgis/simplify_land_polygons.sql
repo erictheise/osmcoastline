@@ -17,9 +17,9 @@
 -- ======================================================================
 
 INSERT INTO simplified_land_polygons (fid, tolerance, min_area, geom)
-    SELECT fid, :tolerance, :min_area, ST_SimplifyPreserveTopology(geom, :tolerance)
+    SELECT ogc_fid, :tolerance, :min_area, ST_SimplifyPreserveTopology(wkb_geometry, :tolerance)
         FROM land_polygons
-        WHERE ST_Area(geom) > :min_area;
+        WHERE ST_Area(wkb_geometry) > :min_area;
 
 CREATE INDEX
     ON simplified_land_polygons
